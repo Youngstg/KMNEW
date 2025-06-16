@@ -5,367 +5,350 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
-    <!-- <link href="./../css/beranda.css" rel="stylesheet"> -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./../tailwindconfig.js"></script>
-    <link rel="stylesheet" href="./../../css/custom.css">
-    <!-- owl-carousel -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'black-100': '#1a1a1a',
+                        'black-75': '#4a4a4a',
+                        'black-border': '#666666',
+                        'neutral-white': '#ffffff',
+                        'yellow-100': '#fbbf24',
+                        'yellow-400': '#facc15',
+                        'orange-100': '#fb923c',
+                        'blue-dark': '#1e3a5f',
+                        'blue-light': '#3b82f6'
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
 </head>
 
-<body class="bg-black-100 overflow-x-hidden">
-    <!-- navbar done -->
-    <header class="sticky top-0 bg-black-100 p-5 z-50">
-        <nav class="lg:flex lg:items-center lg:justify-between">
-            <div class="flex justify-between items-center">
-                <div class=" bg-black-75 flex px-2 rounded shadow-lg shadow-black">
-                    <img src="./../assets/LogoKM.svg" alt="" class="h-12 my-auto" />
-                    <div class="flex">
-                        <h1 class="text-lg md:text-xl font-semibold my-auto text-neutral-white">KM ITERA</h1>
+<body class="overflow-x-hidden bg-gray-100">
+    <!-- navbar -->
+    <header class="sticky top-0 z-50 shadow-lg bg-blue-dark">
+        <nav class="container px-4 py-3 mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-yellow-400 rounded-lg">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" fill="#1e3a5f"/>
+                            <path d="M8 24L24 8M8 8L24 24" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold text-white">KM-ITERA</span>
+                </div>
+                <div class="hidden space-x-8 md:flex">
+                    <a href="#" class="text-white transition hover:text-yellow-400">Beranda</a>
+                    <a href="#" class="text-gray-300 transition hover:text-yellow-400">Tentang</a>
+                    <a href="#" class="text-gray-300 transition hover:text-yellow-400">Alur Sistem</a>
+                    <a href="#" class="text-gray-300 transition hover:text-yellow-400">Kritik dan Saran</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="px-4 py-2 text-white transition bg-blue-600 rounded-lg hover:bg-blue-700">
+                        Login
+                    </button>
+                    <div class="p-2 bg-yellow-400 rounded-full">
+                        <i class="fas fa-user text-blue-dark"></i>
                     </div>
                 </div>
-                <div class="border rounded-lg border-black-border p-2 lg:hidden flex">
-                    <div class="text-4xl cursor-pointer lg:hidden text-neutral-white flex flex-col content-center">
-                        <i class="fa-solid fa-bars" style="color: #ffffff;" onclick="Open('.menu-mobile')"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-mobile hidden transition-all duration-300 lg:flex">
-                <ul
-                    class="lg:flex lg:items-center text-neutral-white z-[-1] lg:z-auto lg:static absolute bg-black-100 w-full left-0 lg:w-auto pt-2 md:pt-10 lg:pt-0 transition-all ease-in duration-100">
-                    <li class="mx-2 my-6 md:my-0">
-                        <button href="#"
-                            class="text-xl text-black-75 duration-100 px-1 mr-1 block py-2 hover:text-white">Beranda</button>
-                    </li>
-                    <li class="mx-2 my-6 md:my-0 md:relative">
-                        <button type="button" href="#"
-                            class="text-xl text-black-75 duration-100 px-1 mr-1 w-full text-start py-2 hover:text-white"
-                            id="dropdown-toggle1">
-                            Profile
-                        </button>
-                        <div class="hidden text-black-75 bg-black-100 py-3 px-5 md:px-0 md:rounded md:absolute"
-                            id="dropdown-menu1">
-                            <ul class="md:py-3 md:w-60">
-                                <li class="p-2 md:px-5 hover:text-white">
-                                    <a href="#" class="p-2 md:px-5 block">Kabinet</a>
-                                </li>
-                                <li class="p-2 md:px-5 hover:text-white">
-                                    <a href="#" class="p-2 md:px-5 block">Organigram</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mx-2 my-6 md:my-0 md:relative">
-                        <button type="button" href="#"
-                            class="text-xl text-black-75 duration-100 px-1 mr-1 w-full text-start py-2 hover:text-white"
-                            id="dropdown-toggle2">
-                            Satu Data Itera
-                        </button>
-                        <div class="hidden text-black-75 bg-black-100 py-3 px-5 md:px-0 md:rounded md:absolute"
-                            id="dropdown-menu2">
-                            <ul class="md:py-3 md:w-60">
-                                <li class="p-2 md:px-5">
-                                    <a href="#" class="p-2 md:px-5 block hover:text-white">Beasiswa</a>
-                                </li>
-                                <li class="p-2 md:px-5">
-                                    <a href="#" class="p-2 md:px-5 block hover:text-white">KP dan Alumni</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mx-2 my-6 md:my-0 md:relative">
-                        <button type="button" href="#"
-                            class="text-xl text-black-75 duration-100 px-1 mr-1 w-full text-start py-2 hover:text-white"
-                            id="dropdown-toggle3">
-                            Alur Sistem
-                        </button>
-                        <div class="hidden text-black-75 bg-black-100 py-3 px-5 md:px-0 md:rounded md:absolute"
-                            id="dropdown-menu3">
-                            <ul class="md:py-3 md:w-60">
-                                <li class="p-2 md:px-5">
-                                    <a href="#" class="p-2 md:px-5 block hover:text-white">Banding UKT</a>
-                                </li>
-                                <li class="p-2 md:px-5">
-                                    <a href="#" class="p-2 md:px-5 block hover:text-white">PIK-R</a>
-                                </li>
-                                <li class="p-2 md:px-5">
-                                    <a href="#" class="p-2 md:px-5 block hover:text-white">Sukma KM ITERA</a>
-                                </li>
-                                <li class="p-2 md:px-5">
-                                    <a href="#" class="p-2 md:px-5 block hover:text-white">Peminjaman</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="mx-2 my-6 md:my-0">
-                        <a href="#"
-                            class="text-xl text-black-75 duration-100 px-1 mr-1 block py-2 hover:text-white">Arsip
-                            Publik</a>
-                    </li>
-                    <li class="mx-2 my-6 md:my-0">
-                        <a href="#"
-                            class="text-xl text-black-75 duration-100 px-1 mr-1 block py-2 hover:text-white">Kritik dan
-                            Saran</a>
-                    </li>
-                </ul>
             </div>
         </nav>
     </header>
-    <!-- main done -->
+
+    <!-- main -->
     <main>
-        <!-- jumbotron -->
-        <section id="jumbotron"
-            class="h-screen bg-jumbotron-beranda bg-no-repeat bg-bottom content-center mx-auto bg-cover md:bg-eclips-beranda md:bg-cover md:bg-right md:flex">
-            <img src="./../assets/LogoKM.svg" class="mx-auto px-14 py-12 md:py-16 md:my-auto md:w-1/2 " alt="logo">
-            <h1
-                class="text-center font-extrabold text-white text-2xl leading-relaxed px-3 md:my-auto md:text-4xl md:px-5 xl:text-6xl">
-                Selamat Datang di
-                Official Website KABINET KM
-                ITERA
-            </h1>
-        </section>
-        <!-- tentang kami -->
-        <section id="tentang-kami" class="md:h-1/2 bg-rectangle-beranda bg-cover md:flex">
-            <article class="h-1/2 md:h-3/4 md:w-2/5 flex justify-center align-top pb-5 text-lg md:text-xl lg:text-2xl">
-                <div class="bg-beranda h-3/4 md:px-5 md:w-4/5 rounded-lg py-4 md:pt-4">
-                    <h3 class="text-center text-2xl font-semibold pb-5 text-white">Tentang Kami</h3>
-                    <p
-                        class="bg-beranda text-white text-center text-sm md:text-base xl:text-xl xl:leading-relaxed px-1">
-                        Lorem
-                        ipsum dolor
-                        sit
-                        amet consectetur adipisicing elit. Possimus laboriosam mollitia iste? Facere nulla fuga quas
-                        corrupti exercitationem dolores rerum eos quam at perspiciatis asperiores amet quo saepe, odio
-                        illum! A, rem. Vero similique labore, corporis reprehenderit culpa eum minus et illo, saepe,
-                        sequi sunt ex nihil porro aliquid veritatis? Dicta ad iusto, vel earum quasi quas id itaque
-                        reprehenderit consequatur nesciunt distinctio! </p>
-                </div>
-            </article>
-            <figure class="h-1/2 md:w-1/2 mx-auto md:h-full content-center py-16 px-5 md:my-auto">
-                <iframe src="https://www.youtube.com/embed/8OxTG8plkz4" class="aspect-video w-full rounded-2xl mx-auto"
-                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; web-share"></iframe>
-            </figure>
-
-        </section>
-        <!-- kabar dan beasiswa -->
-        <div class="bg-gear-beranda bg-no-repeat bg-cover bg-left-top">
-            <!-- kabar (-header)-->
-            <section id="kabar" class="py-10 mx-auto">
-                <!-- header -->
-                <div class="container px-4 mx-auto my-5">
-                    <div class="flex justify-between px-5">
-                        <h2 class="text-start text-xl font-semibold text-white md:text-2xl lg:text-4xl">Kabar dari
-                            KM-ITERA
-                        </h2>
-                        <a href="./kabar.html"
-                            class="text-end text-md text-white md:text-lg my-auto no-underline">lihat</a>
-                    </div>
-                </div>
-                <!-- carousel -->
-                <div class="owl-carousel px-2 md:px-5 py-5" id="kabar-carousel">
-                    <a href="./kabarpage.html">
-                        <div class="item relative h-2/3">
-                            <img src="{{ asset('assets/images/bg-card.jpg') }}"
-                                class=" w-full rounded-xl box-border aspect-video">
-                            <p
-                                class="absolute bottom-0 font-bold text-neutral-white m-5 text-sm md:text-base lg:text-lg xl:text-2xl">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, nihil.
-                            </p>
-                        </div>
-                    </a>
-                    <a href="./kabarpage.html">
-                        <div class="item relative h-2/3">
-                            <img src="./../assets/bg-card.jpg" alt=""
-                                class=" w-full rounded-xl box-border aspect-video">
-                            <p
-                                class="absolute bottom-0 font-bold text-neutral-white m-5 text-sm md:text-base lg:text-lg xl:text-2xl ">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, nihil.
-                            </p>
-                        </div>
-                    </a>
-                    <a href="./kabarpage.html">
-                        <div class="item relative h-2/3">
-                            <img src="./../assets/bg-card.jpg" alt=""
-                                class=" w-full rounded-xl box-border aspect-video">
-                            <p
-                                class="absolute bottom-0 font-bold text-neutral-white m-5 text-sm md:text-base lg:text-lg xl:text-2xl">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, nihil.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-
-            </section>
-            <!-- Beasiswa (-header)-->
-            <section id="beasiswa" class="py-10">
-                <!-- header -->
-                <div class="container px-5 mx-auto my-5">
-                    <div class="flex justify-between pl-3">
-                        <h2 class="text-start text-xl font-semibold text-white md:text-2xl lg:text-4xl">Beasiswa</h2>
-                        <a href="" class="text-end text-md text-white md:text-lg my-auto no-underline">lihat</a>
-                        <!--masih terlalu naik-->
-                    </div>
-                </div>
-                <!-- carousel -->
-                <div class="owl-carousel px-2 md:px-5 py-5" id="beasiswa-carousel">
-                    <div class="item relative h-2/3 rounded-xl">
-                        <img src="{{ asset('assets/images/Rectangle 3.jpg') }}" class="w-full rounded-3xl" />
-                    </div>
-                    <div class="item relative h-2/3 rounded-xl">
-                        <img src="./../assets/Rectangle 3.jpg" class="w-full rounded-3xl" />
-                    </div>
-                    <div class="item relative h-2/3 rounded-xl">
-                        <img src="./../assets/Rectangle 3.jpg" class="w-full rounded-3xl" />
-                    </div>
-                </div>
-            </section>
-        </div>
-        <!-- Alumni-->
-        <section id="alumni" class="">
-            <div class="bg-black-75 p-10 ">
-                <h2 class="text-center text-lg font-semibold text-white md:text-2xl lg:text-2xl my-3 pb-3">Sebaran KP
-                    dan
-                    Kerja
-                    Alumni</h2>
-                <div class="container mx-auto md:flex gap-x-5 box-border">
-
-                    <div class="card w-full md:w-1/2 bg-orange-100/80  text-center rounded-lg py-10 px-5 mx-auto my-3 ">
-                        <p class="font-bold text-neutral-white mb-7 md:text-2xl">Sebaran KP</p>
-                        <a href="#"
-                            class="inline-block bg-yellow-100 py-2 px-2 rounded-md text-white shadow shadow-yellow-950 md:w-1/3  hover:-translate-y-1 hover:shadow hover:drop-shadow-lg hover:text-white group relative   items-center overflow-hidden ">
-                            <span
-                                class="absolute left-0 w-full h-0 transition-all bg-yellow-400 opacity-100 group-hover:h-full group-hover:top-0 duration-400 ease"></span>
-                            <span
-                                class="absolute right-0  justify-start w-5 h-5 duration-300 transform translate-x-full group-hover:translate-x-0 group-hover:mr-6 ease hidden md:block"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <g transform="rotate(90 12 12)">
-                                        <path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m12 5l6 6m-6-6l-6 6m6-6v14" />
-                                    </g>
-                                </svg>
-                            </span>
-                            <span class="relative">Sebaran KP</span>
-                        </a>
-                    </div>
-
-                    <div class="card w-full md:w-1/2 bg-yellow-100/80  text-center rounded-lg py-10 px-5 mx-auto my-3">
-                        <p class="font-bold text-neutral-white mb-7 md:text-2xl md:tracking-wide">Sebaran Kerja Alumni
+        <!-- Hero Section -->
+        <section class="flex items-center min-h-screen gradient-bg hero-pattern">
+            <div class="container px-4 mx-auto">
+                <div class="flex flex-col items-center md:flex-row">
+                    <div class="mb-8 text-white md:w-1/2 md:mb-0">
+                        <h1 class="mb-6 text-4xl font-bold md:text-6xl">SI</h1>
+                        <p class="mb-8 text-lg leading-relaxed md:text-xl">
+                            Website KM-ITERA merupakan platform untuk digitalisasi 
+                            informasi serta mempermudah profil dari 
+                            Keluarga Mahasiswa ITERA. Platform ini menyediakan 
+                            berbagai fitur untuk mempermudah mahasiswa dalam 
+                            mengakses informasi dan layanan kampus.
                         </p>
-                        <a href="#"
-                            class="inline-block bg-orange-100 py-2 px-2 rounded-md shadow shadow-yellow-950 text-white md:w-1/3 hover:-translate-y-1 hover:shadow hover:drop-shadow-lg  hover:text-white group relative   items-center overflow-hidden">
-                            <span
-                                class=" absolute left-0 w-full h-0 transition-all bg-red-700 opacity-100 group-hover:h-full group-hover:top-0 duration-400 ease"></span>
-                            <span
-                                class="absolute right-0  justify-start w-5 h-5 duration-300 transform translate-x-full group-hover:translate-x-0 group-hover:mr-6 ease hidden md:block"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <g transform="rotate(90 12 12)">
-                                        <path fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m12 5l6 6m-6-6l-6 6m6-6v14" />
-                                    </g>
-                                </svg>
-                            </span>
-                            <span class="relative">Sebaran KP</span>
-                        </a>
+                        <div class="flex space-x-4">
+                            <button class="px-6 py-3 font-semibold transition bg-yellow-400 rounded-lg text-blue-dark hover:bg-yellow-500">
+                                Aktivitas KM
+                            </button>
+                            <button class="px-6 py-3 text-white transition border border-white rounded-lg hover:bg-white hover:text-blue-dark">
+                                E-Commerce
+                            </button>
+                        </div>
+                        <div class="mt-8">
+                            <p class="text-sm text-gray-300">Scroll down</p>
+                            <div class="mt-2 animate-bounce">
+                                <i class="text-white fas fa-chevron-down"></i>
+                            </div>
+                        </div>
                     </div>
+                    <div class="flex justify-center md:w-1/2">
+                        <div class="relative">
+                            <!-- Abstract shapes representing the colorful design -->
+                            <div class="relative w-80 h-80">
+                                <div class="absolute top-0 left-0 w-32 h-32 bg-pink-500 rounded-full opacity-80 animate-pulse"></div>
+                                <div class="absolute right-0 w-24 h-24 delay-300 bg-purple-500 rounded-full top-16 opacity-70 animate-pulse"></div>
+                                <div class="absolute delay-700 bg-yellow-400 rounded-full bottom-16 left-8 w-28 h-28 opacity-60 animate-pulse"></div>
+                                <div class="absolute bottom-0 delay-1000 bg-orange-400 rounded-full opacity-50 right-16 w-36 h-36 animate-pulse"></div>
+                                <div class="absolute w-20 h-20 delay-500 transform -translate-x-1/2 -translate-y-1/2 bg-blue-400 rounded-full top-1/2 left-1/2 opacity-90 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Filosofi Logo Section -->
+        <section class="py-16 bg-white">
+            <div class="container px-4 mx-auto">
+                <div class="mb-12 text-center">
+                    <h2 class="mb-4 text-3xl font-bold text-gray-800 md:text-4xl">Filosofi Logo</h2>
+                    <div class="w-24 h-1 mx-auto bg-yellow-400"></div>
+                </div>
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <div class="text-center group">
+                        <div class="p-8 mb-4 transition-shadow rounded-lg bg-blue-dark hover:shadow-xl">
+                            <div class="flex items-center justify-center w-24 h-24 mx-auto mb-4 bg-yellow-400 rounded-lg">
+                                <i class="text-2xl fas fa-graduation-cap text-blue-dark"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">KM ITERA</h3>
+                        </div>
+                        <button class="text-blue-600 transition hover:text-blue-800">View</button>
+                    </div>
+                    <div class="text-center group">
+                        <div class="p-8 mb-4 transition-shadow rounded-lg bg-blue-dark hover:shadow-xl">
+                            <div class="flex items-center justify-center w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-lg">
+                                <i class="text-2xl fas fa-shield-alt text-blue-dark"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">KM ITERA</h3>
+                        </div>
+                        <button class="text-blue-600 transition hover:text-blue-800">View</button>
+                    </div>
+                    <div class="text-center group">
+                        <div class="p-8 mb-4 transition-shadow rounded-lg bg-blue-dark hover:shadow-xl">
+                            <div class="flex items-center justify-center w-24 h-24 mx-auto mb-4 bg-yellow-400 rounded-lg">
+                                <i class="text-2xl fas fa-handshake text-blue-dark"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">KM ITERA</h3>
+                        </div>
+                        <button class="text-blue-600 transition hover:text-blue-800">View</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get To Know About KM Section -->
+        <section class="py-16 bg-blue-dark">
+            <div class="container px-4 mx-auto">
+                <div class="flex flex-col items-center md:flex-row">
+                    <div class="pr-8 text-white md:w-1/2">
+                        <h2 class="mb-6 text-3xl font-bold text-yellow-400 md:text-4xl">Get To Know About KM</h2>
+                        <p class="mb-8 text-lg leading-relaxed">
+                            Keluarga Mahasiswa Institut Teknologi Sumatera (KM-ITERA) 
+                            merupakan wadah bagi seluruh mahasiswa ITERA untuk 
+                            mengembangkan potensi baik dalam bidang pendidikan dan 
+                            keilmuan maupun hal-hal budaya hingga pengabdian 
+                            masyarakat. KM-ITERA adalah lembaga tertinggi dari 
+                            organisasi mahasiswa ITERA yang mewadahi dari seluruh bidang dan 
+                            telah menjadi demi budaya hingga pengabdian masyarakat.
+                        </p>
+                        <button class="px-6 py-3 font-semibold transition bg-yellow-400 rounded-lg text-blue-dark hover:bg-yellow-500">
+                            Read More
+                        </button>
+                    </div>
+                    <div class="mt-8 md:w-1/2 md:mt-0">
+                        <div class="flex items-center justify-center bg-gray-300 rounded-lg aspect-video">
+                            <button class="p-4 text-white transition bg-blue-600 rounded-full hover:bg-blue-700">
+                                <i class="text-2xl fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organizations Logo Grid -->
+        <section class="py-16 bg-white">
+            <div class="container px-4 mx-auto">
+                <div class="grid items-center grid-cols-2 gap-8 md:grid-cols-5 justify-items-center">
+                    <!-- Logo placeholder circles -->
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-university"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-users"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-building"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-handshake"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-certificate"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-trophy"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-star"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-globe"></i>
+                    </div>
+                    <div class="flex items-center justify-center w-20 h-20 bg-gray-200 rounded-full">
+                        <i class="text-2xl text-gray-500 fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event KM-Itera Section -->
+        <section class="py-16 bg-blue-dark">
+            <div class="container px-4 mx-auto">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-yellow-400 md:text-4xl">Event KM-Itera</h2>
+                    <button class="px-4 py-2 transition bg-yellow-400 rounded-lg text-blue-dark hover:bg-yellow-500">
+                        Lihat Semua
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <div class="overflow-hidden transition-shadow bg-white rounded-lg hover:shadow-xl">
+                        <div class="flex items-center justify-center h-48 bg-gray-200">
+                            <i class="text-4xl text-gray-400 fas fa-image"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="mb-2 text-lg font-bold">Hara Mengajar</h3>
+                            <div class="flex items-center mb-2 text-sm text-gray-600">
+                                <i class="mr-2 fas fa-user"></i>
+                                <span>Dhea Faizah Naza</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="mr-2 fas fa-calendar"></i>
+                                <span>25 Desember 2024, 08:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden transition-shadow bg-white rounded-lg hover:shadow-xl">
+                        <div class="flex items-center justify-center h-48 bg-gray-200">
+                            <i class="text-4xl text-gray-400 fas fa-image"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="mb-2 text-lg font-bold">Riuh Wisuda Terprogram</h3>
+                            <div class="flex items-center mb-2 text-sm text-gray-600">
+                                <i class="mr-2 fas fa-user"></i>
+                                <span>Muhammad Rizky</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="mr-2 fas fa-calendar"></i>
+                                <span>13 Oktober 2024, 08:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden transition-shadow bg-white rounded-lg hover:shadow-xl">
+                        <div class="flex items-center justify-center h-48 bg-gray-200">
+                            <i class="text-4xl text-gray-400 fas fa-image"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="mb-2 text-lg font-bold">Moderasi Beragama</h3>
+                            <div class="flex items-center mb-2 text-sm text-gray-600">
+                                <i class="mr-2 fas fa-user"></i>
+                                <span>Tasya Regital</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="mr-2 fas fa-calendar"></i>
+                                <span>14 September 2024, 13:00</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
     <!-- footer -->
-    <footer class="bg-black-100 py-2 text-black-75 w-full">
-        <div class="flex justify-between">
-            <div class="flex justify-between items-center">
-                <img src="{{ asset('assets/images/LogoKM.svg') }}" alt=""
-                    class="h-20 px-2 md:h-24 lg:h-32 md:px-5 lg:px-8" />
+    <footer class="py-12 bg-blue-dark">
+        <div class="container px-4 mx-auto">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div>
+                    <div class="flex items-center mb-4 space-x-3">
+                        <div class="p-2 bg-yellow-400 rounded-lg">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" fill="#1e3a5f"/>
+                                <path d="M8 24L24 8M8 8L24 24" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white">Kabinet</h3>
+                            <h3 class="font-bold text-white">Resonantra</h3>
+                            <p class="text-sm text-gray-300">Keluarga Mahasiswa Itera</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-4 font-bold text-white">Hubungi Kami</h4>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <p>Gedung E no. ITERA Jl. Terusan</p>
+                        <p>Perwira Sukarame Jati Agung,</p>
+                        <p>Kabupaten Lampung</p>
+                        <p>Selatan, Lampung 35365</p>
+                        <p>Alamandar : 08512-848-9785 (Tharisa)</p>
+                        <p>Telepone : 08547-715-8861 (Berto)</p>
+                        <p>Whatsapp : 08513-663-0900</p>
+                        <p>E-email :</p>
+                        <p>kemahasiswaan.itera.ac.id</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start md:items-end">
+                    <div class="flex mb-4 space-x-4">
+                        <a href="#" class="text-white transition hover:text-yellow-400">
+                            <i class="text-2xl fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white transition hover:text-yellow-400">
+                            <i class="text-2xl fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-white transition hover:text-yellow-400">
+                            <i class="text-2xl fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white transition hover:text-yellow-400">
+                            <i class="text-2xl fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col content-center px-2 md:px-3 lg:px-5">
-                <ul class="flex justify-around my-auto">
-                    <a href="">
-                        <li class="flex text-2xl mx-3 lg:text-4xl md:mx-5 lg:mx-8">
-                            <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
-                        </li>
-                    </a>
-                    <a href="">
-                        <li class="flex text-2xl mx-3 lg:text-4xl md:mx-5 lg:mx-8">
-                            <i class="fa-brands fa-twitter" style="color: #ffffff;"></i>
-                        </li>
-                    </a>
-                    <a href="">
-                        <li class="flex text-2xl mx-3 lg:text-4xl md:mx-5 lg:mx-8">
-                            <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
-                        </li>
-                    </a>
-                    <a href="">
-                        <li class="flex text-2xl mx-3 lg:text-4xl md:mx-5 lg:mx-8">
-                            <i class="fa-brands fa-spotify" style="color: #ffffff;"></i>
-                        </li>
-                    </a>
-                </ul>
+            <div class="pt-4 mt-8 border-t border-gray-600">
+                <p class="text-sm text-center text-gray-400">
+                    ©Kementerian Teknologi Informasi Kabinet KM-ITERA 2023-2026. All rights reserved...
+                </p>
             </div>
-        </div>
-        <div class="px-2 md:px-5 lg:px-8">
-            <p class="text-sm text-left md:text-base lg:text-lg md:py-1 lg:py-2">
-                &copy;2023 Kementrian Teknologi Informasi. All rights reserved.
-            </p>
         </div>
     </footer>
 
-    <!-- script -->
-    <script src="./../../js/navbar.js"></script>
-
-    <!-- owl-carousel CDN-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $('#kabar-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            touchDrag: true,
-            autoplay: true,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                }
-            }
-        })
-    </script>
-    <script>
-        $('#beasiswa-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            touchDrag: true,
-            autoplay: true,
-            autoplayTimeout: 1000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        })
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 
 </html>

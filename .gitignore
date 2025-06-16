@@ -17,3 +17,7 @@ yarn-error.log
 /.idea
 /.vscode
 .env.example
+.env
+.env.local
+*.key
+app/Http/Controllers/Controller.php
